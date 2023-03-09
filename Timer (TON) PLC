@@ -1,0 +1,27 @@
+// In a manufacturing plant, a conveyor belt is used to transport products from one station to another.
+// The conveyor belt needs to be controlled in such a way that it stops for a certain amount of time at each station,
+// allowing workers to perform their tasks before moving on to the next station.
+// This can be achieved using a Timer (TON) function block in the PLC.
+
+// Assuming the conveyor belt is controlled by a motor, the following code can be used to control its operation:
+
+VAR
+    BeltMotor: MOTOR;      // Motor controlling the conveyor belt
+    StopTime: TON;         // Timer for controlling the stop time at each station
+END_VAR
+
+BeltMotor.Run := TRUE;     // Start the motor
+
+IF StopTime.Q THEN         // Check if stop time has elapsed
+    BeltMotor.Run := TRUE; // Start the motor again
+    StopTime(IN:=FALSE);   // Reset the timer
+ELSIF Station1 THEN        // Check if the conveyor belt is at station 1
+    BeltMotor.Run := FALSE; // Stop the motor
+    StopTime(IN:=TRUE, PT:=T#5S); // Start the timer for 5 seconds
+END_IF
+
+// In this code, the BeltMotor variable represents the motor controlling the conveyor belt.
+// The StopTime variable is a TON function block used to control the stop time at each station.
+// When the conveyor belt reaches station 1, the BeltMotor is stopped and the StopTime is started with a preset time of 5 seconds (PT:=T#5S).
+// Once the StopTime has elapsed, the motor is started again and the StopTime is reset (StopTime(IN:=FALSE)).
+// The process repeats for each station along the conveyor belt.
