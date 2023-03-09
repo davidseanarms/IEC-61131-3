@@ -1,0 +1,16 @@
+PLC Control blocks and function blocks
+
+Timer (TON): This function block is used to create a time delay in the program.
+It is commonly used in applications where a delay is required before a specific action takes place.
+
+Counter (CTU): This function block is used to count the number of times an input signal is detected.
+It is commonly used in applications where a specific number of events need to occur before an action takes place.
+
+Compare (CMP): This function block is used to compare two values and determine if they are equal, greater than, or less than each other.
+It is commonly used in applications where certain conditions need to be met before an action takes place.
+
+Set/Reset (SR): This function block is used to set or reset a specific output based on the state of one or more input signals.
+It is commonly used in applications where a specific output needs to be turned on or off based on certain conditions.
+
+Move (MOV): This function block is used to move data from one location to another.
+It is commonly used in applications where data needs to be transferred between different parts of the program or between different devices.
